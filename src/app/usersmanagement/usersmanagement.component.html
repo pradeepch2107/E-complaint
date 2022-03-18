@@ -1,0 +1,82 @@
+
+<div class="container "  id="border"> <div class=" text-center mt-5 " style="margin:auto ;" >
+  <h1>Users complaints</h1>
+  <div class="row" style="padding-top: 30px;">
+    <div class="col-sm-6" > 
+        Search: <input type="text" #search (keyup)="dosearch(search.value)"> &nbsp;
+       <a routerLink="/complaint/:userid"><button class="btn btn-success btn-sm">Add complaint</button></a> 
+    </div>
+    
+    </div>
+
+</div>
+<div class="row ">
+  <div class="col-lg-12 mx-auto">
+      <div class="card mt-2 mx-auto p-4 bg-light">
+          <div class="card-body bg-light">
+              <div class="container">
+
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">S.no</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">type</th>
+            <th scope="col">Open</th>
+            <th scope="col">delete</th>
+            <th scope="col">status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users;index as i;">
+            <th scope="row">{{i+1}}</th>
+            <td>{{user.uname}}</td>
+            <td>{{user.uemail}}</td>
+            <td>{{user.uphone}}</td>
+            <td>{{user.uissue}}</td>
+            <td>
+               <a routerLink="/viewcomplaint/{{user._id}}"> <button class="btn btn-primary btn-sm">Open</button></a> 
+            </td>
+            <td>
+              <button class="btn btn-danger btn-sm" (click)="deletecomplaint(user._id)">Delete</button>
+
+            </td>
+            <td>
+              <form (submit)=updatestatus(f) #f=ngForm>
+                <div >
+                  <input  type="radio" name="ustatus" ngModel value="Accepted" id="flexRadioDefault1">
+                  <label  for="flexRadioDefault1">
+                    Accept
+                  </label><br>
+                  <div >
+                  <input  type="radio" ngModel name="statusid" value={{user._id}} checked id="flexRadioDefault2" >
+                  <label  for="flexRadioDefault2">
+                     Confirm
+                  </label>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-success btn-sm" >Send</button> &nbsp;
+
+                </div>
+                
+               
+
+
+          </form>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+

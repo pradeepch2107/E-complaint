@@ -1,0 +1,17 @@
+<div class="shadow-custom" style="position: fixed;z-index: 100 ;background-color:white;width: 100%;">
+      <header class=" border-bottom">
+    <div class="container d-flex flex-wrap justify-content-center py-2  ">
+    <ul class="nav nav-pills">
+      <li class="nav-item "><a routerLink="/contactus" class="nav-link hover-shadow "*ngIf="!isadmin()&&userSer.isLoggedIn()">Contact us</a></li>
+      <li class="nav-item"><a routerLink="/complaint/{{getUserId()}}" class="nav-link hover-shadow" *ngIf="userSer.isLoggedIn()">Complaint</a></li>
+      <li class="nav-item"><a routerLink="/users" class="nav-link hover-shadow" *ngIf="isadmin()">Users</a></li>
+      <li class="nav-item"><a routerLink="/acontactus" class="nav-link hover-shadow" *ngIf="isadmin()">User Queries</a></li>
+      <li class="nav-item"><a routerLink="/mycomplaints/{{getUserId()}}" class="nav-link hover-shadow" *ngIf="userSer.isLoggedIn()">My complaints</a></li>
+      <li class="nav-item"><a routerLink="/usersmanagement/:userid" class="nav-link hover-shadow" *ngIf="isadmin()">Users complaints</a></li>
+      <li class="nav-item"><a routerLink="/logout" class="nav-link active hover-shadow"  *ngIf="userSer.isLoggedIn()">Logout</a></li>
+
+    </ul>
+  </div>
+  </header>
+</div>
+<br><br><br>
